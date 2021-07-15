@@ -1,11 +1,24 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import './style.css';
+import jsonData from './receipts.json';
 
 export default function Dashboard() {
+
+  // Importing the data from a local json file. Normally,
+  // this page would make a fetch request to an api to retrieve
+  // the data that it needs. The response would then be stored in 
+  // the state variable.
+  const [data,] = useState(jsonData);
+
   return (
     <Container id="dashboardContainer">
-      Dash
+      <h1 id="dashboardTitle">Dashboard</h1>
+      <Row>
+        <Col>
+          
+        </Col>
+      </Row>
     </Container>
   )
 }

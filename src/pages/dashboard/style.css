@@ -1,3 +1,8 @@
 #dashboardContainer {
   margin-top: 1rem;
 }
+
+#dashboardTitle {
+  font-weight: 200;
+  font-size: xx-large;
+}
