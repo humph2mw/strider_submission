@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Nav from './components/navbar/Navbar'
-import Dashboard from './pages/dashboard/Dashboard'
+import Dashboard from './pages/dashboard'
 import './App.css'
 
 function App () {

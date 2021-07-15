@@ -43,3 +43,7 @@ export const calculateNumberOfRecurringCustomers = (data) => {
 const getOccurence = (array, value) => {
   return array.filter((item) => (item.CustomerId === value)).length
 }
+
+export const getDateOccurence = (array, value) => {
+  return array.filter((item) => (item.Date.slice(0, 10) === value)).length
+}

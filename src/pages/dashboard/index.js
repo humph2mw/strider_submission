@@ -3,7 +3,8 @@ import { Col, Container, Row } from 'react-bootstrap'
 import './style.css'
 import jsonData from './receipts.json'
 import HighlightCard from '../../components/highlightCard'
-import { calculateAverageNumberOfItemsPerOrder, calculateAverageValueOfOrders, calculateNumberOfRecurringCustomers } from '../../utils/dashboard'
+import { calculateAverageNumberOfItemsPerOrder, calculateAverageValueOfOrders, calculateNumberOfRecurringCustomers } from '../../utils'
+import OrdersPerDayGraph from '../../components/ordersPerDayGraph'
 
 export default function Dashboard () {
   // Importing the data from a local json file. Normally,
@@ -36,7 +37,9 @@ export default function Dashboard () {
         </Col>
       </Row>
       <Row>
-        {data.map(item => (<p key={item.OrderId}>{item.OrderId}</p>))}
+        <Col md={6}>
+          <OrdersPerDayGraph data={data}/>
+        </Col>
       </Row>
     </Container>
   )
