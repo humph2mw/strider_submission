@@ -5,6 +5,7 @@ import jsonData from './receipts.json'
 import HighlightCard from '../../components/highlightCard'
 import { calculateAverageNumberOfItemsPerOrder, calculateAverageValueOfOrders, calculateNumberOfRecurringCustomers } from '../../utils'
 import OrdersPerDayGraph from '../../components/ordersPerDayGraph'
+import ItemPurchaseFrequencyGraph from '../../components/itemPurchaseFrequencyGraph'
 
 export default function Dashboard () {
   // Importing the data from a local json file. Normally,
@@ -36,9 +37,12 @@ export default function Dashboard () {
           <HighlightCard title={countOfRecurringCustomers} description={'Number of Recurring Customers'}/>
         </Col>
       </Row>
-      <Row>
+      <Row id="graphRow">
         <Col md={6}>
           <OrdersPerDayGraph data={data}/>
+        </Col>
+        <Col md={6}>
+          <ItemPurchaseFrequencyGraph data={data}/>
         </Col>
       </Row>
     </Container>

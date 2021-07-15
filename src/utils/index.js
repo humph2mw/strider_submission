@@ -30,7 +30,6 @@ export const calculateAverageNumberOfItemsPerOrder = (data) => {
 export const calculateNumberOfRecurringCustomers = (data) => {
   let countOfRecurringCustomers = 0
   const uniqueCustomers = [...new Set(data.map(item => item.CustomerId))]
-  console.log(uniqueCustomers)
   uniqueCustomers.forEach(customer => {
     const numberOfOccurences = getOccurence(data, customer)
     if (numberOfOccurences > 1) {
