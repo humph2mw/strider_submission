@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import './style.css'
 import jsonData from './receipts.json'
 import HighlightCard from '../../components/highlightCard'
-import { calculateAverageValueOfOrders } from '../../utils/dashboard'
+import { calculateAverageNumberOfItemsPerOrder, calculateAverageValueOfOrders, calculateNumberOfRecurringCustomers } from '../../utils/dashboard'
 
 export default function Dashboard () {
   // Importing the data from a local json file. Normally,
@@ -12,9 +12,13 @@ export default function Dashboard () {
   // the state variable.
   const [data] = useState(jsonData)
   const [averageValueOfOrders, setAverageValueOfOrders] = useState(0)
+  const [averageNumberOfItemsPerOrder, setAverageNumberOfItemsPerOrder] = useState(0)
+  const [countOfRecurringCustomers, setCountOfRecurringCustomers] = useState(0)
 
   useEffect(() => {
     setAverageValueOfOrders(calculateAverageValueOfOrders(data))
+    setAverageNumberOfItemsPerOrder(calculateAverageNumberOfItemsPerOrder(data))
+    setCountOfRecurringCustomers(calculateNumberOfRecurringCustomers(data))
   }, [])
 
   return (
@@ -25,10 +29,10 @@ export default function Dashboard () {
           <HighlightCard title={averageValueOfOrders} description={'Average Value Per Order'} />
         </Col>
         <Col md={4}>
-          <HighlightCard title={'Average Number of Items Per Order'}/>
+          <HighlightCard title={averageNumberOfItemsPerOrder} description={'Average Number of Items Per Order'}/>
         </Col>
         <Col md={4}>
-          <HighlightCard title={'Largest Order'}/>
+          <HighlightCard title={countOfRecurringCustomers} description={'Number of Recurring Customers'}/>
         </Col>
       </Row>
       <Row>
