@@ -1,8 +1,8 @@
-import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import './style.css';
+import React from 'react'
+import Navbar from 'react-bootstrap/Navbar'
+import './style.css'
 
-export default function Nav() {
+export default function Nav () {
   return (
     <div>
       <Navbar id="navbar">

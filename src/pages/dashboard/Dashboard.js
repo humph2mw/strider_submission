@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import './style.css';
-import jsonData from './receipts.json';
-import HighlightCard from '../../components/highlightCard';
+import React, { useState } from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
+import './style.css'
+import jsonData from './receipts.json'
+import HighlightCard from '../../components/highlightCard'
 
-export default function Dashboard() {
-
+export default function Dashboard () {
   // Importing the data from a local json file. Normally,
   // this page would make a fetch request to an api to retrieve
-  // the data that it needs. The response would then be stored in 
+  // the data that it needs. The response would then be stored in
   // the state variable.
-  const [data,] = useState(jsonData);
+  const [data] = useState(jsonData)
 
   return (
     <Container id="dashboardContainer">
@@ -28,6 +27,9 @@ export default function Dashboard() {
         <Col md={3}>
           <HighlightCard />
         </Col>
+      </Row>
+      <Row>
+        {data.map(item => (<p key={item.OrderId}>{item.OrderId}</p>))}
       </Row>
     </Container>
   )
