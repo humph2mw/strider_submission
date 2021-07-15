@@ -1,5 +1,9 @@
 #navbar {
-  background-color: #FFFFFF;
+  background-color: #0e52c2;
   border-bottom: 1px solid lightgray;
   padding: 0.5rem;
+}
+
+#striderLogo {
+  width: 12rem;
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import './style.css';
 import jsonData from './receipts.json';
+import HighlightCard from '../../components/highlightCard';
 
 export default function Dashboard() {
 
@@ -15,8 +16,17 @@ export default function Dashboard() {
     <Container id="dashboardContainer">
       <h1 id="dashboardTitle">Dashboard</h1>
       <Row>
-        <Col>
-          
+        <Col md={3}>
+          <HighlightCard />
+        </Col>
+        <Col md={3}>
+          <HighlightCard />
+        </Col>
+        <Col md={3}>
+          <HighlightCard />
+        </Col>
+        <Col md={3}>
+          <HighlightCard />
         </Col>
       </Row>
     </Container>
