@@ -57,12 +57,12 @@ export default function ItemPurchaseFrequencyGraph (props) {
     // Get the name of each item into a list
     pieData.labels = createLabelList()
     pieData.datasets[0].data = createPieDataset()
-    pieData.datasets[0].backgroundColor = pieData.datasets[0].data.map(row => (ORANGE))
+    pieData.datasets[0].backgroundColor = pieData.datasets[0].data.map(() => (ORANGE))
     setPieData(pieData)
   }, [])
 
   return (
-    <Card id="ordersPerDayCard">
+    <Card id="itemPurchaseFrequencyCard">
       <Card.Title>Item Order Frequency</Card.Title>
       <Bar data={pieData} options={options} />
     </Card>
