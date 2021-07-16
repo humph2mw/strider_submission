@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Nav from './components/navbar/Navbar'
+import Nav from './components/navbar'
 import Dashboard from './pages/dashboard'
 import './App.css'
 

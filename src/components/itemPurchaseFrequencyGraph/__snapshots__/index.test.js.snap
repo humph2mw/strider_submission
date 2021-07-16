@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="card"
+  id="itemPurchaseFrequencyCard"
+>
+  <div
+    className="card-title h5"
+  >
+    Item Order Frequency
+  </div>
+</div>
+`;

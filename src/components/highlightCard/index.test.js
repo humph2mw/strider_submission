@@ -8,8 +8,9 @@ describe('test highlightCard component', () => {
       render(<HighlightCard title={'23'} description={'test description'}/>)
       // Check to see that title and description exist
       const title = await screen.findByText(23)
-      expect(title).toBeTruthy()
       const description = await screen.findByText('test description')
+
+      expect(title).toBeTruthy()
       expect(description).toBeTruthy()
     })
   })
