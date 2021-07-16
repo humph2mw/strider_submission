@@ -73,6 +73,62 @@ exports[`dashboard tests snapshot renders correctly 1`] = `
   </div>
   <div
     className="row"
+    id="frequentCustomerRow"
+  >
+    <div
+      className="col-md-12"
+    >
+      <div
+        className="card"
+        id="frequentCustomerCard"
+      >
+        <div
+          className="card-title h5"
+        >
+          Recurring Customers
+        </div>
+        <table
+          className="table table-striped table-hover"
+        >
+          <thead>
+            <tr>
+              <th>
+                Customer Name
+              </th>
+              <th>
+                Number of Orders
+              </th>
+              <th>
+                Total Spent
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Elizabeth
+              </td>
+              <td />
+              <td>
+                $undefined
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Emira
+              </td>
+              <td />
+              <td>
+                $undefined
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
     id="graphRow"
   >
     <div

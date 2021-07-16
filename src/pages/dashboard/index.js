@@ -6,6 +6,7 @@ import HighlightCard from '../../components/highlightCard'
 import { calculateAverageNumberOfItemsPerOrder, calculateAverageValueOfOrders, calculateNumberOfRecurringCustomers } from '../../utils'
 import OrdersPerDayGraph from '../../components/ordersPerDayGraph'
 import ItemPurchaseFrequencyGraph from '../../components/itemPurchaseFrequencyGraph'
+import FrequentCustomerCard from '../../components/frequentCustomerCard'
 
 export default function Dashboard () {
   // Importing the data from a local json file. Normally,
@@ -31,18 +32,23 @@ export default function Dashboard () {
           <HighlightCard title={`$${averageValueOfOrders}`} description={'Average Value Per Order'} />
         </Col>
         <Col md={4}>
-          <HighlightCard title={`${averageNumberOfItemsPerOrder}`} description={'Average Number of Items Per Order'}/>
+          <HighlightCard title={`${averageNumberOfItemsPerOrder}`} description={'Average Number of Items Per Order'} />
         </Col>
         <Col md={4}>
-          <HighlightCard title={`${countOfRecurringCustomers}`} description={'Number of Recurring Customers'}/>
+          <HighlightCard title={`${countOfRecurringCustomers}`} description={'Number of Recurring Customers'} />
+        </Col>
+      </Row>
+      <Row id="frequentCustomerRow">
+        <Col md={12}>
+          <FrequentCustomerCard data={data} />
         </Col>
       </Row>
       <Row id="graphRow">
         <Col md={6}>
-          <OrdersPerDayGraph data={data}/>
+          <OrdersPerDayGraph data={data} />
         </Col>
         <Col md={6}>
-          <ItemPurchaseFrequencyGraph data={data}/>
+          <ItemPurchaseFrequencyGraph data={data} />
         </Col>
       </Row>
     </Container>

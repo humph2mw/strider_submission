@@ -2,7 +2,11 @@ import {
   calculateAverageValueOfOrders,
   calculateAverageNumberOfItemsPerOrder,
   calculateNumberOfRecurringCustomers,
-  getDateOccurence
+  getDateOccurence,
+  getOccurence,
+  getRecurringCustomerNames,
+  calculateTotalSpentByCustomer,
+  unique
 } from './index'
 
 import data from '../pages/dashboard/receipts.json'
@@ -33,6 +37,33 @@ describe('test utility functions', () => {
 
     test('should not find any occurences for a date not in the array', () => {
       expect(getDateOccurence(data, '2021-03-01')).toBe(0)
+    })
+  })
+
+  describe('test getOccurence', () => {
+    test('should get the correct number of occurences', () => {
+      expect(getOccurence(data, 1)).toBe(2)
+    })
+  })
+
+  describe('test getRecurringCustomerNames', () => {
+    test('should get the correct list of names', () => {
+      expect(getRecurringCustomerNames(data)).toEqual([
+        { customerId: 1, customerName: 'Elizabeth' },
+        { customerId: 3, customerName: 'Emira' }
+      ])
+    })
+  })
+
+  describe('test calculateTotalSpentByCustomer', () => {
+    test('should get the correct total', () => {
+      expect(calculateTotalSpentByCustomer(data, 1)).toBe('36.00')
+    })
+  })
+
+  describe('test unique', () => {
+    test('should get the correct unique names', () => {
+      expect(unique(data, ['CustomerId', 'CustomerName']).size).toEqual(6)
     })
   })
 })
