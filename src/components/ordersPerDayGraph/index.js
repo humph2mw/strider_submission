@@ -48,5 +48,5 @@ export default function OrdersPerDayGraph (props) {
 }
 
 OrdersPerDayGraph.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.array
 }

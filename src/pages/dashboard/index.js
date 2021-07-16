@@ -13,9 +13,9 @@ export default function Dashboard () {
   // the data that it needs. The response would then be stored in
   // the state variable.
   const [data] = useState(jsonData)
-  const [averageValueOfOrders, setAverageValueOfOrders] = useState(0)
-  const [averageNumberOfItemsPerOrder, setAverageNumberOfItemsPerOrder] = useState(0)
-  const [countOfRecurringCustomers, setCountOfRecurringCustomers] = useState(0)
+  const [averageValueOfOrders, setAverageValueOfOrders] = useState('0')
+  const [averageNumberOfItemsPerOrder, setAverageNumberOfItemsPerOrder] = useState('0')
+  const [countOfRecurringCustomers, setCountOfRecurringCustomers] = useState('0')
 
   useEffect(() => {
     setAverageValueOfOrders(calculateAverageValueOfOrders(data))
@@ -28,13 +28,13 @@ export default function Dashboard () {
       <h1 id="dashboardTitle">Dashboard</h1>
       <Row>
         <Col md={4}>
-          <HighlightCard title={averageValueOfOrders} description={'Average Value Per Order'} />
+          <HighlightCard title={`$${averageValueOfOrders}`} description={'Average Value Per Order'} />
         </Col>
         <Col md={4}>
-          <HighlightCard title={averageNumberOfItemsPerOrder} description={'Average Number of Items Per Order'}/>
+          <HighlightCard title={`${averageNumberOfItemsPerOrder}`} description={'Average Number of Items Per Order'}/>
         </Col>
         <Col md={4}>
-          <HighlightCard title={countOfRecurringCustomers} description={'Number of Recurring Customers'}/>
+          <HighlightCard title={`${countOfRecurringCustomers}`} description={'Number of Recurring Customers'}/>
         </Col>
       </Row>
       <Row id="graphRow">

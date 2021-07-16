@@ -70,5 +70,5 @@ export default function ItemPurchaseFrequencyGraph (props) {
 }
 
 ItemPurchaseFrequencyGraph.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.array
 }
