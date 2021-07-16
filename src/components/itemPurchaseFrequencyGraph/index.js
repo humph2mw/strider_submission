@@ -5,13 +5,16 @@ import PropTypes from 'prop-types'
 import { Bar } from 'react-chartjs-2'
 
 export default function ItemPurchaseFrequencyGraph (props) {
-  const [pieData, setPieData] = useState({})
+  const [data, setData] = useState({})
   const options = {
     indexAxis: 'y',
     responsive: true
   }
   const ORANGE = 'darkorange'
 
+  /**
+   * Flatten the array of Items
+   */
   const flattenList = () => {
     let listOfItems = []
     props.data.forEach(item => {
@@ -22,14 +25,19 @@ export default function ItemPurchaseFrequencyGraph (props) {
     return listOfItems
   }
 
+  /**
+   * Filter the list to only include item names
+   */
   const createLabelList = () => {
     let listOfItems = flattenList()
-    // Filter the list to only include item names
     listOfItems = [...new Set(listOfItems.map((item) => (item.Item)))]
     return listOfItems
   }
 
-  const createPieDataset = () => {
+  /**
+   * Calculate the values for each bar
+   */
+  const createDataset = () => {
     const labels = createLabelList()
     const itemList = flattenList()
     const itemCounts = []
@@ -46,7 +54,7 @@ export default function ItemPurchaseFrequencyGraph (props) {
   }
 
   useEffect(() => {
-    const pieData = {
+    const graphData = {
       labels: [],
       datasets: [{
         label: '# of Times an Item Has Been Ordered',
@@ -55,16 +63,18 @@ export default function ItemPurchaseFrequencyGraph (props) {
       }]
     }
     // Get the name of each item into a list
-    pieData.labels = createLabelList()
-    pieData.datasets[0].data = createPieDataset()
-    pieData.datasets[0].backgroundColor = pieData.datasets[0].data.map(() => (ORANGE))
-    setPieData(pieData)
+    graphData.labels = createLabelList()
+    // Get the data values
+    graphData.datasets[0].data = createDataset()
+    // Add color to each bar
+    graphData.datasets[0].backgroundColor = graphData.datasets[0].data.map(() => (ORANGE))
+    setData(graphData)
   }, [])
 
   return (
     <Card id="itemPurchaseFrequencyCard">
       <Card.Title>Item Order Frequency</Card.Title>
-      <Bar data={pieData} options={options} />
+      <Bar data={data} options={options} />
     </Card>
   )
 }

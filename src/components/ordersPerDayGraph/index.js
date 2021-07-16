@@ -30,7 +30,9 @@ export default function OrdersPerDayGraph (props) {
         backgroundColor: []
       }]
     }
+    // Create the label for each bar
     dateData.labels = [...new Set(props.data.map(item => item.Date.slice(0, 10)))]
+    // Calculate the value and set the color of each bar
     dateData.labels.forEach(item => {
       const occurence = getDateOccurence(props.data, item)
       dateData.datasets[0].data.push(occurence)

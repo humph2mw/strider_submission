@@ -22,6 +22,7 @@ export default function FrequentCustomerCard (props) {
     })
     setCustomers(updatedCustomers)
   }, [customers])
+
   return (
     <Card id="frequentCustomerCard">
       <Card.Title>Recurring Customers</Card.Title>
